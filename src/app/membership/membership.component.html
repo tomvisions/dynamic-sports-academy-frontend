@@ -1,0 +1,84 @@
+<style>
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+  
+    li {
+      height: 100vh;
+      flex-grow: 1;
+    }
+  
+    img {
+      max-height: 100%;
+      min-width: 100%;
+      object-fit: cover;
+      vertical-align: bottom;
+    }
+  </style>
+  
+  <!-- Page Banner Area Start -->
+  <div id="page-banner-area" class="page-banner-area section" style="background-image: url({{academyCoverImage}})">
+    <div class="container">
+      <div class="row">
+        <div class="page-banner-title text-center col-xs-12">
+          <h2>support membsg</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page Banner Area End -->
+  
+  <!-- Contact Area Start -->
+  <div id="contact-area" class="contact-area section pb-60 pt-60">
+    <div class="container">
+      <div class="row">
+        <!-- Contact Info -->
+        <div class="col-lg-4 col-md-5 col-12 mb-30">
+          <div class="contact-info">
+            <h4>Follow Us</h4>
+          </div>
+          <a href="https://www.facebook.com/mamboleofc" target="_blank"><img
+            src="https://tomvisions-images.s3.amazonaws.com/mamboleofc/facebook-logo.png"></a>
+          <a href="https://www.instagram.com/mamboleo_fc/" target="_blank"><img
+            src="https://tomvisions-images.s3.amazonaws.com/mamboleofc/instagram-logo.png"></a>
+          <a href="https://twitter.com/MamboleoFc" target="_blank"><img
+            src="https://tomvisions-images.s3.amazonaws.com/mamboleofc/twitter-logo.png"></a>
+        </div>
+        <!-- Contact Form -->
+        <div class="col-lg-8 col-md-7 col-12 mb-30">
+          <div class="contact-form">
+            <div class="form">
+
+
+        
+              <h4>Support Membership</h4>
+              <form [formGroup]="academyForm">
+                <input type="text" name="name" placeholder="Name" [formControlName]="'name'">
+                <input type="email" name="email" placeholder="Birth" [formControlName]="'birth'">
+                <input type="text" name="placeOfBirth" placeholder="Place Of Birth" [formControlName]="'placeOfBirth'">
+                <input type="text" name="nhis" placeholder="nhis" [formControlName]="'nhis'">
+                <input type="text" name="residentalAddress" placeholder="Residental Address" [formControlName]="'residentalAddress'">
+                <input type="text" name="nameOfParentsOrGuardian" placeholder="Name Of Parents Or Guardian" [formControlName]="'nameOfParentsOrGuardian'">
+                <input type="text" name="nameOfParentsOrGuardianPhone" placeholder="Name Of Parents Or Guardian Phone" [formControlName]="'nameOfParentsOrGuardianPhone'">
+                <input type="text" name="school" placeholder="school" [formControlName]="'school'">
+                <input type="text" name="classOrForm" placeholder="Class Or Form" [formControlName]="'classOrForm'">
+                <input type="text" name="schoolContact" placeholder="School Contact" [formControlName]="'schoolContact'">
+                <input type="text" name="formerClub" placeholder="Former Club" [formControlName]="'formerClub'">
+                <button (click)="submitToMembership()">Send</button>
+              </form>
+            </div>
+          </div>
+          <div class="success hide">
+            <h4>You have successfully sent the message to Mamboleo FC</h4>
+          </div>
+          <div class="fail hide">
+            <h4>An error occurred. Message was not sent. Please try again later</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Contact Area End -->
+  

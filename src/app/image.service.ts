@@ -6,8 +6,8 @@ const Buffer = require('buffer').Buffer;
 })
 
 export class ImageService {
-  private _PARAM_LOCATION = 'dynamic-sports-academy';
-  private _PARAM_FRONTCLOUD = 'https://d34wc8uzk8vrsx.cloudfront.net';
+  private _PARAM_LOCATION = 'banner';
+  private _PARAM_FRONTCLOUD = 'https://images.dynamic-sports-academy.com';
 
   constructor() { }
 
@@ -135,7 +135,7 @@ export class ImageService {
     }
 
     const imageRequest = JSON.stringify({
-      bucket: "tomvisions-original-images",
+      bucket: "dynamic-sports-academy-images",
       key: key,
       edits: edits
     })
