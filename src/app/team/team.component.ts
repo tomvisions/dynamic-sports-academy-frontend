@@ -32,5 +32,8 @@ export class TeamComponent implements OnInit {
       {name: 'date', content: '2019-10-31', scheme: 'YYYY-MM-DD'},
       {charset: 'UTF-8'},
     ]);
+
+
+    
   }
 }

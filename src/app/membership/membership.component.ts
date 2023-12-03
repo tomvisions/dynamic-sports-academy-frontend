@@ -40,7 +40,8 @@ export class MembershipComponent implements OnInit {
     // Create the selected product form
     this.academyForm = this._formBuilder.group({
       name: '',
-      birth: '',
+      email: '',
+      birthday: '',
       placeOfBirth: '',
       nhis: '',
       residentalAddress: '',

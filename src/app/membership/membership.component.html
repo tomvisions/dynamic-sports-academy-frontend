@@ -56,7 +56,8 @@
               <h4>Support Membership</h4>
               <form [formGroup]="academyForm">
                 <input type="text" name="name" placeholder="Name" [formControlName]="'name'">
-                <input type="email" name="email" placeholder="Birth" [formControlName]="'birth'">
+                <input type="text" name="email" placeholder="Email" [formControlName]="'email'">
+                <input type="email" name="birthday" placeholder="Birthday" [formControlName]="'birthday'">
                 <input type="text" name="placeOfBirth" placeholder="Place Of Birth" [formControlName]="'placeOfBirth'">
                 <input type="text" name="nhis" placeholder="nhis" [formControlName]="'nhis'">
                 <input type="text" name="residentalAddress" placeholder="Residental Address" [formControlName]="'residentalAddress'">
@@ -66,7 +67,7 @@
                 <input type="text" name="classOrForm" placeholder="Class Or Form" [formControlName]="'classOrForm'">
                 <input type="text" name="schoolContact" placeholder="School Contact" [formControlName]="'schoolContact'">
                 <input type="text" name="formerClub" placeholder="Former Club" [formControlName]="'formerClub'">
-                <button (click)="submitToMembership()">Send</button>
+                <button (click)="submitToMembership()" class="submit">Send</button>
               </form>
             </div>
           </div>

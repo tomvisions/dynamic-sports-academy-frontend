@@ -1,7 +1,8 @@
 export interface Membership
 {
   name: string;
-  birth: string;
+  email: string;
+  birthday: string;
   placeOfBirth: string;
   nhis: string;
   residentalAddress: string;

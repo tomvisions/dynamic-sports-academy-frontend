@@ -50,9 +50,6 @@
         <div class="col-lg-8 col-md-7 col-12 mb-30">
           <div class="contact-form">
             <div class="form">
-
-
-        
               <h4>Join the Academy</h4>
               <form [formGroup]="academyForm">
                 <input type="text" name="name" placeholder="Name" [formControlName]="'name'">
@@ -66,7 +63,7 @@
                 <input type="text" name="classOrForm" placeholder="Class Or Form" [formControlName]="'classOrForm'">
                 <input type="text" name="schoolContact" placeholder="School Contact" [formControlName]="'schoolContact'">
                 <input type="text" name="formerClub" placeholder="Former Club" [formControlName]="'formerClub'">
-                <button (click)="submitToAcademy()">Send</button>
+                <button (click)="submitToAcademy()" class="submit">Send</button>
               </form>
             </div>
           </div>
