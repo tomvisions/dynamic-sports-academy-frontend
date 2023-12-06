@@ -9,7 +9,7 @@
     </div>
   </div>
   <!-- Page Banner Area End -->
-    
+
     <!-- Staff Area Start -->
     <div id="staff-area" class="staff-area section pb-120 pt-120">
         <div class="container">
@@ -83,10 +83,10 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
-                    
-                    
+
+
                     <!-- First Team Tab -->
                     <div role="tabpanel" class="tab-pane fade" id="boys-under-13">
                         <div class="row">
@@ -141,51 +141,23 @@
                     <!-- Academy Tab -->
                     <div role="tabpanel" class="tab-pane fade" id="boys-under-15">
                         <div class="row">
-                            <!-- Single Stuff -->
-                            <div class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
-                                <div class="image"><img src="https://placehold.co/270x284" alt=""></div>
-                                <div class="content">
-                                    <div class="details">
-                                        <h4><a href="#">Carl Hill</a></h4>
-                                        <p>Midfielder</p>
-                                    </div>
-                                    <h2 class="num">14</h2>
-                                </div>
-                            </div>
-                            <!-- Single Stuff -->
-                            <div class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
-                                <div class="image"><img src="https://placehold.co/270x284" alt=""></div>
-                                <div class="content">
-                                    <div class="details">
-                                        <h4><a href="#">John Ward</a></h4>
-                                        <p>Midfielder</p>
-                                    </div>
-                                    <h2 class="num">14</h2>
-                                </div>
-                            </div>
-                            <!-- Single Stuff -->
-                            <div class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
-                                <div class="image"><img src="https://placehold.co/270x284" alt=""></div>
-                                <div class="content">
-                                    <div class="details">
-                                        <h4><a href="#">David Bates</a></h4>
-                                        <p>Midfielder</p>
-                                    </div>
-                                    <h2 class="num">14</h2>
-                                </div>
-                            </div>
-                            <!-- Single Stuff -->
-                            <div class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
-                                <div class="image"><img src="https://placehold.co/270x284" alt=""></div>
-                                <div class="content">
-                                    <div class="details">
-                                        <h4><a href="#">Carl Stanley</a></h4>
-                                        <p>Midfielder</p>
-                                    </div>
-                                    <h2 class="num">14</h2>
-                                </div>
-                            </div>
 
+                          <ng-container *ngIf="boysUnder15Team.length > 0; else noBoysUnder15">
+
+                            <!-- Single Stuff -->
+                            <div class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
+                              <div class="image"><img src="https://placehold.co/270x284" alt=""></div>
+                              <div class="content">
+                                <div class="details">
+                                  <h4><a href="#">dd{{boysUnder15Team['firstName']}} {{boysUnder15Team['lastName']}}</a></h4>
+
+                                </div>
+                              </div>
+                            </div>
+                          </ng-container>
+                          <ng-template #noBoysUnder15>
+                            <div class="p-8 sm:p-16 border-t text-4xl font-semibold tracking-tight text-center">There are no items!</div>
+                          </ng-template>
                         </div>
 
 
@@ -193,50 +165,23 @@
                       <!-- Academy Tab -->
                     <div role="tabpanel" class="tab-pane fade" id="boys-under-17">
                         <div class="row">
-                            <!-- Single Stuff -->
-                            <div class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
+
+                          <ng-container *ngIf="boysUnder17Team.length > 0; else noBoysUnder17">
+
+                              <!-- Single Stuff -->
+                              <div class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
                                 <div class="image"><img src="https://placehold.co/270x284" alt=""></div>
                                 <div class="content">
-                                    <div class="details">
-                                        <h4><a href="#">Carl Hill</a></h4>
-                                        <p>Midfielder</p>
-                                    </div>
-                                    <h2 class="num">14</h2>
+                                  <div class="details">
+                                    <h4><a href="#">{{boysUnder17Team['firstName']}} {{boysUnder17Team['lastName']}}</a></h4>
+
+                                  </div>
                                 </div>
-                            </div>
-                            <!-- Single Stuff -->
-                            <div class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
-                                <div class="image"><img src="https://placehold.co/270x284" alt=""></div>
-                                <div class="content">
-                                    <div class="details">
-                                        <h4><a href="#">John Ward</a></h4>
-                                        <p>Midfielder</p>
-                                    </div>
-                                    <h2 class="num">14</h2>
-                                </div>
-                            </div>
-                            <!-- Single Stuff -->
-                            <div class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
-                                <div class="image"><img src="https://placehold.co/270x284" alt=""></div>
-                                <div class="content">
-                                    <div class="details">
-                                        <h4><a href="#">David Bates</a></h4>
-                                        <p>Midfielder</p>
-                                    </div>
-                                    <h2 class="num">14</h2>
-                                </div>
-                            </div>
-                            <!-- Single Stuff -->
-                            <div class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
-                                <div class="image"><img src="https://placehold.co/270x284" alt=""></div>
-                                <div class="content">
-                                    <div class="details">
-                                        <h4><a href="#">Carl Stanley</a></h4>
-                                        <p>Midfielder</p>
-                                    </div>
-                                    <h2 class="num">14</h2>
-                                </div>
-                            </div>
+                              </div>
+                          </ng-container>
+                          <ng-template #noBoysUnder17>
+                            <div class="p-8 sm:p-16 border-t text-4xl font-semibold tracking-tight text-center">There are no items!</div>
+                          </ng-template>
 
                         </div>
                     </div>
@@ -289,7 +234,7 @@
                                                         <h2 class="num">14</h2>
                                                     </div>
                                                 </div>
-                    
+
                                             </div>
 
                                                                 <!-- Academy Tab -->
@@ -343,7 +288,7 @@
                         </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
     <!-- Staff Area End -->

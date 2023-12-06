@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageService } from '../image.service';
 import { Meta } from '@angular/platform-browser';
+import {TeamService} from "./team.service";
+import {Team} from "./team.type";
 
 @Component({
   selector: 'app-team',
@@ -10,8 +12,10 @@ import { Meta } from '@angular/platform-browser';
 export class TeamComponent implements OnInit {
   aboutCoverImage;
   aboutSideImage;
-
-  constructor(private _imageService: ImageService, private _metaTagService: Meta) {
+  boysUnder17Team=[];
+  boysUnder15Team=[];
+  boysUnder13Team=[];
+  constructor(private _imageService: ImageService, private _metaTagService: Meta, private _teamService: TeamService) {
   }
 
 
@@ -24,7 +28,7 @@ export class TeamComponent implements OnInit {
     this._metaTagService.addTags([
       {
         name: 'keywords',
-        content: 'About MamboleoFC, soccer training',
+        content: 'About Dynamic Sports Academy',
       },
       {name: 'robots', content: 'index, follow'},
       {name: 'author', content: 'Tom Cruickshank'},
@@ -32,8 +36,44 @@ export class TeamComponent implements OnInit {
       {name: 'date', content: '2019-10-31', scheme: 'YYYY-MM-DD'},
       {charset: 'UTF-8'},
     ]);
+     const players = this._teamService.getTeams()
+     const timestampBoysUnder17 = (new Date(2023-5, 9, 1,  0, 0)).getTime();
+     const timestampBoysUnder15 = (new Date(2023-8, 9, 1,  0, 0)).getTime();
+     const timestampBoysUnder13 = (new Date(2023-10, 9, 1,  0, 0)).getTime();
+    const boysUnder15Team = [];
+    const boysUnder13Team = [];
+//    console.log(new Date(2023-5, 9, 1,  0, 0));
 
+    players.map((player) => {
+       if (player.DOB !== 'Not Available') {
+         const birthday = player.DOB.split('-');
+         const timestampOfPlayer = (new Date( Number(birthday[2]), Number(birthday[1]), Number(birthday[0]),  0, 0)).getTime();
+   //      console.log('begin')
+    //     console.log('17')
+     //    console.log(timestampBoysUnder17)
+      //   console.log('15')
+       //  console.log(timestampBoysUnder15);
+      //   console.log('player')
 
-    
+       //  console.log(timestampOfPlayer);
+       //  console.log(player)
+
+         if (timestampOfPlayer < timestampBoysUnder17 && timestampOfPlayer > timestampBoysUnder15) {
+       //    console.log('entering')
+      //     console.log(player);
+           this.boysUnder17Team.push(player);
+         } else if (timestampOfPlayer < timestampBoysUnder15 &&  timestampOfPlayer > timestampBoysUnder13) {
+           this.boysUnder15Team.push(player);
+         } else if (timestampOfPlayer < timestampBoysUnder13) {
+           this.boysUnder13Team.push(player)
+        //   boysUnder13Team.push(player);
+         }
+       }
+
+      // const date = new Date(2016, 6, 27, 13, 30, 0);
+        //console.log(player);
+     });
+    console.log(this.boysUnder15Team)
+
   }
 }

@@ -2,7 +2,8 @@ export interface Team
 {
   familyName: string;
   firstName: string;
-  birthDay: string;
+  DOB: string;
+  DOBTimestamp: string;
   gender: string;
   mainNationality: string;
   countryOfBirth: string;
