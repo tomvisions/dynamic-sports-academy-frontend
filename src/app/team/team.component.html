@@ -90,66 +90,36 @@
                     <!-- First Team Tab -->
                     <div role="tabpanel" class="tab-pane fade" id="boys-under-13">
                         <div class="row">
-                            <!-- Single Stuff -->
-                            <div class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
-                                <div class="image"><img src="https://placehold.co/270x284" alt=""></div>
-                                <div class="content">
+                            <ng-container *ngIf="boysUnder13Team.length > 0; else noBoysUnder13">
+
+                                <!-- Single Stuff -->
+                                <div *ngFor="let boy of boysUnder13Team" class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
+                                  <div class="image"><img src="https://placehold.co/270x284" alt=""></div>
+                                  <div class="content">
                                     <div class="details">
-                                        <h4><a href="#">Jeffrey Moore</a></h4>
-                                        <p>Midfielder</p>
+                                      <h4><a href="#">{{boy['firstName']}} {{boy['lastName']}}</a></h4>
+    
                                     </div>
-                                    <h2 class="num">14</h2>
+                                  </div>
                                 </div>
-                            </div>
-                            <!-- Single Stuff -->
-                            <div class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
-                                <div class="image"><img src="https://placehold.co/270x284" alt=""></div>
-                                <div class="content">
-                                    <div class="details">
-                                        <h4><a href="#">Bryan Parker</a></h4>
-                                        <p>Midfielder</p>
-                                    </div>
-                                    <h2 class="num">14</h2>
-                                </div>
-                            </div>
-                            <!-- Single Stuff -->
-                            <div class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
-                                <div class="image"><img src="https://placehold.co/270x284" alt=""></div>
-                                <div class="content">
-                                    <div class="details">
-                                        <h4><a href="#">Juan Wood</a></h4>
-                                        <p>Midfielder</p>
-                                    </div>
-                                    <h2 class="num">14</h2>
-                                </div>
-                            </div>
-                            <!-- Single Stuff -->
-                            <div class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
-                                <div class="image"><img src="https://placehold.co/270x284" alt=""></div>
-                                <div class="content">
-                                    <div class="details">
-                                        <h4><a href="#">Ethan Barrett</a></h4>
-                                        <p>Midfielder</p>
-                                    </div>
-                                    <h2 class="num">14</h2>
-                                </div>
-                            </div>
+                              </ng-container>
+                              <ng-template #noBoysUnder13>
+                                <div class="p-8 sm:p-16 border-t text-4xl font-semibold tracking-tight text-center">There are no items!</div>
+                              </ng-template>
                         </div>
                     </div>
-
 
                     <!-- Academy Tab -->
                     <div role="tabpanel" class="tab-pane fade" id="boys-under-15">
                         <div class="row">
-
                           <ng-container *ngIf="boysUnder15Team.length > 0; else noBoysUnder15">
 
                             <!-- Single Stuff -->
-                            <div class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
+                            <div *ngFor="let boy of boysUnder15Team" class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
                               <div class="image"><img src="https://placehold.co/270x284" alt=""></div>
                               <div class="content">
                                 <div class="details">
-                                  <h4><a href="#">dd{{boysUnder15Team['firstName']}} {{boysUnder15Team['lastName']}}</a></h4>
+                                  <h4><a href="#">{{boy['firstName']}} {{boy['lastName']}}</a></h4>
 
                                 </div>
                               </div>
@@ -159,7 +129,7 @@
                             <div class="p-8 sm:p-16 border-t text-4xl font-semibold tracking-tight text-center">There are no items!</div>
                           </ng-template>
                         </div>
-
+                    </div>        
 
 
                       <!-- Academy Tab -->
@@ -169,27 +139,46 @@
                           <ng-container *ngIf="boysUnder17Team.length > 0; else noBoysUnder17">
 
                               <!-- Single Stuff -->
-                              <div class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
+                              <div *ngFor="let boy of boysUnder17Team" class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
                                 <div class="image"><img src="https://placehold.co/270x284" alt=""></div>
                                 <div class="content">
                                   <div class="details">
-                                    <h4><a href="#">{{boysUnder17Team['firstName']}} {{boysUnder17Team['lastName']}}</a></h4>
+                                    <h4><a href="#">{{boy['firstName']}} {{boy['lastName']}}</a></h4>
 
                                   </div>
                                 </div>
                               </div>
                           </ng-container>
                           <ng-template #noBoysUnder17>
-                            <div class="p-8 sm:p-16 border-t text-4xl font-semibold tracking-tight text-center">There are no items!</div>
+                            <div class="p-8 sm:p-16 border-t text-4xl font-semibold tracking-tight text-center">There are no players in this category!</div>
                           </ng-template>
 
                         </div>
-                    </div>
-
+                    </div>                                                                                          
 
                                         <!-- Academy Tab -->
-                                        <div role="tabpanel" class="tab-pane fade" id="womens amature">
+                                        <div role="tabpanel" class="tab-pane fade" id="womens-amature">
                                             <div class="row">
+
+                                                <ng-container *ngIf="boysUnder17Team.length > 0; else noBoysUnder17">
+
+                                                    <!-- Single Stuff -->
+                                                    <div *ngFor="let boy of boysUnder17Team" class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
+                                                      <div class="image"><img src="https://placehold.co/270x284" alt=""></div>
+                                                      <div class="content">
+                                                        <div class="details">
+                                                          <h4><a href="#">{{boy['firstName']}} {{boy['lastName']}}</a></h4>
+                      
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                </ng-container>
+                                                <ng-template #noBoysUnder17>
+                                                  <div class="p-8 sm:p-16 border-t text-4xl font-semibold tracking-tight text-center">There are no players in this category!</div>
+                                                </ng-template>
+                                            </div>
+                                        </div>        
+                                                
                                                 <!-- Single Stuff -->
                                                 <div class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
                                                     <div class="image"><img src="https://placehold.co/270x284" alt=""></div>
