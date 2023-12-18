@@ -4,12 +4,12 @@
       flex-wrap: wrap;
       flex-direction: row;
     }
-  
+
     li {
       height: 100vh;
       flex-grow: 1;
     }
-  
+
     img {
       max-height: 100%;
       min-width: 100%;
@@ -17,7 +17,7 @@
       vertical-align: bottom;
     }
   </style>
-  
+
   <!-- Page Banner Area Start -->
   <div id="page-banner-area" class="page-banner-area section" style="background-image: url({{academyCoverImage}})">
     <div class="container">
@@ -29,7 +29,7 @@
     </div>
   </div>
   <!-- Page Banner Area End -->
-  
+
   <!-- Contact Area Start -->
   <div id="contact-area" class="contact-area section pb-60 pt-60">
     <div class="container">
@@ -52,7 +52,7 @@
             <div class="form">
 
 
-        
+
               <h4>Support Membership</h4>
               <form [formGroup]="academyForm">
                 <input type="text" name="name" placeholder="Name" [formControlName]="'name'">
@@ -72,14 +72,13 @@
             </div>
           </div>
           <div class="success hide">
-            <h4>You have successfully sent the message to Mamboleo FC</h4>
+            <h4>You have successfully sent the submission to join the academy</h4>
           </div>
           <div class="fail hide">
-            <h4>An error occurred. Message was not sent. Please try again later</h4>
+            <h4>An error occurred. Submission was not sent. Please try again later</h4>
           </div>
         </div>
       </div>
     </div>
   </div>
   <!-- Contact Area End -->
-  
