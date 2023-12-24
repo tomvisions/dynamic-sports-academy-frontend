@@ -12,9 +12,11 @@ import {Team} from "./team.type";
 export class TeamComponent implements OnInit {
   aboutCoverImage;
   aboutSideImage;
+  intro = [];
   boysUnder17Team=[];
   boysUnder15Team=[];
   boysUnder13Team=[];
+
   constructor(private _imageService: ImageService, private _metaTagService: Meta, private _teamService: TeamService) {
   }
 
@@ -37,12 +39,21 @@ export class TeamComponent implements OnInit {
       {charset: 'UTF-8'},
     ]);
      const players = this._teamService.getTeams()
+    const intro = this._teamService.getIntro()
      const timestampBoysUnder17 = (new Date(2023-5, 9, 1,  0, 0)).getTime();
      const timestampBoysUnder15 = (new Date(2023-8, 9, 1,  0, 0)).getTime();
      const timestampBoysUnder13 = (new Date(2023-10, 9, 1,  0, 0)).getTime();
     const boysUnder15Team = [];
     const boysUnder13Team = [];
 //    console.log(new Date(2023-5, 9, 1,  0, 0));
+
+    intro.map((line) => {
+      console.log('hello')
+      console.log(line.text);
+      this.intro.push(line.text);
+
+    })
+    console.log(intro);
 
     players.map((player) => {
        if (player.DOB !== 'Not Available') {
