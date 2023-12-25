@@ -23,6 +23,19 @@ export class ImageService {
     return `${this._PARAM_FRONTCLOUD}/${resizedImage}`;
   }
 
+  loadImage270x284(image) {
+    const resizedImage = this.resizeWithInS3(image, {
+      "resize": {
+        "width": 270,
+        "height": 284,
+        "fit": "cover"
+      }
+    });
+
+    return `${this._PARAM_FRONTCLOUD}/${resizedImage}`;
+  }
+
+
   loadImage270x270(image) {
     const resizedImage = this.resizeWithInS3(image, {
       "resize": {
@@ -96,12 +109,12 @@ export class ImageService {
     return `${this._PARAM_FRONTCLOUD}/${resizedImage}`;
   }
 
-  loadImage500x251(image) {
+  loadImage100x100(image) {
     const resizedImage = this.resizeWithInS3(image, {
       "resize": {
-        "width": 500,
-        "height": 251,
-        "fit": "cover"
+        "width": 75,
+        "height":75,
+        "fit": "outside"
       }
     });
 
@@ -144,8 +157,21 @@ export class ImageService {
   }
 
   public setSitePrefix(prefix = true) {
-    if (!prefix) {
-      this._PARAM_LOCATION = null;
+    if (prefix) {
+      this._PARAM_LOCATION = 'site';
+    }
+  }
+
+  public setHeadShotsPrefix(prefix = true) {
+    if (prefix) {
+      this._PARAM_LOCATION = 'headshots';
+    }
+  }
+
+
+  public setBannerPrefix(prefix = true) {
+    if (prefix) {
+      this._PARAM_LOCATION = 'banner';
     }
   }
 }

@@ -1,5 +1,5 @@
 <!-- Page Banner Area Start -->
-<div id="page-banner-area" class="page-banner-area section" style="background-image: url({{aboutCoverImage}})">
+<div id="page-banner-area" class="page-banner-area section" style="background-image: url({{teamCoverImage}})">
     <div class="container">
       <div class="row">
         <div class="page-banner-title text-center col-12">
@@ -46,8 +46,10 @@
                     <div class="row">
                       <ng-container *ngIf="intro.length > 0">
                         <!-- Single Stuff -->
-                        <div *ngFor="let line of intro" class="staff-item  col-12 mb-30">
-                          <p>
+                        <div class="image col-3"><img src="{{georgeHeadshot}}" alt=""></div>
+
+                        <div class="staff-item  col-9 mb-30">
+                          <p *ngFor="let line of intro" >
                             {{line}}
                           </p>
                         </div>
@@ -128,7 +130,7 @@
                                         <div role="tabpanel" class="tab-pane fade" id="womens-amature">
                                             <div class="row">
 
-                                                <ng-container *ngIf="boysUnder17Team.length > 0; else noBoysUnder17">
+                                                <ng-container *ngIf="womensAmature.length > 0; else noWomensAmature">
 
                                                     <!-- Single Stuff -->
                                                     <div *ngFor="let boy of boysUnder17Team" class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
@@ -141,61 +143,37 @@
                                                       </div>
                                                     </div>
                                                 </ng-container>
-                                                <ng-template #noBoysUnder17>
+                                                <ng-template #noWomensAmature>
                                                   <div class="p-8 sm:p-16 border-t text-4xl font-semibold tracking-tight text-center">There are no players in this category!</div>
                                                 </ng-template>
                                             </div>
                                         </div>
 
+
+
                                                                 <!-- Academy Tab -->
                     <div role="tabpanel" class="tab-pane fade" id="mens-amature">
                         <div class="row">
+
+                          <ng-container *ngIf="mensAmature.length > 0; else noMensAmature">
+
                             <!-- Single Stuff -->
-                            <div class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
-                                <div class="image"><img src="https://placehold.co/270x284" alt=""></div>
-                                <div class="content">
-                                    <div class="details">
-                                        <h4><a href="#">Carl Hill</a></h4>
-                                        <p>Midfielder</p>
-                                    </div>
-                                    <h2 class="num">14</h2>
+                            <div *ngFor="let men of mensAmature" class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
+                              <div class="image"><img src="https://placehold.co/270x284" alt=""></div>
+                              <div class="content">
+                                <div class="details">
+                                  <h4><a href="#">{{men['firstName']}} {{men['lastName']}}</a></h4>
+
                                 </div>
+                              </div>
                             </div>
-                            <!-- Single Stuff -->
-                            <div class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
-                                <div class="image"><img src="https://placehold.co/270x284" alt=""></div>
-                                <div class="content">
-                                    <div class="details">
-                                        <h4><a href="#">John Ward</a></h4>
-                                        <p>Midfielder</p>
-                                    </div>
-                                    <h2 class="num">14</h2>
-                                </div>
-                            </div>
-                            <!-- Single Stuff -->
-                            <div class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
-                                <div class="image"><img src="https://placehold.co/270x284" alt=""></div>
-                                <div class="content">
-                                    <div class="details">
-                                        <h4><a href="#">David Bates</a></h4>
-                                        <p>Midfielder</p>
-                                    </div>
-                                    <h2 class="num">14</h2>
-                                </div>
-                            </div>
-                            <!-- Single Stuff -->
-                            <div class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
-                                <div class="image"><img src="https://placehold.co/270x284" alt=""></div>
-                                <div class="content">
-                                    <div class="details">
-                                        <h4><a href="#">Carl Stanley</a></h4>
-                                        <p>Midfielder</p>
-                                    </div>
-                                    <h2 class="num">14</h2>
-                                </div>
-                            </div>
+                          </ng-container>
+                          <ng-template #noMensAmature>
+                            <div class="p-8 sm:p-16 border-t text-4xl font-semibold tracking-tight text-center">There are no players in this category!</div>
+                          </ng-template>
 
                         </div>
+                    </div>
                 </div>
             </div>
 

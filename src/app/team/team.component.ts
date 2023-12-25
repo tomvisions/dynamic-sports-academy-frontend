@@ -16,6 +16,10 @@ export class TeamComponent implements OnInit {
   boysUnder17Team=[];
   boysUnder15Team=[];
   boysUnder13Team=[];
+  mensAmature = [];
+  womensAmature = [];
+  georgeHeadshot;
+  teamCoverImage;
 
   constructor(private _imageService: ImageService, private _metaTagService: Meta, private _teamService: TeamService) {
   }
@@ -26,6 +30,11 @@ export class TeamComponent implements OnInit {
    // this.aboutSideImage = this._imageService.loadImage450x450('about-side-image.jpg');
     this.aboutCoverImage = 'https://placehold.co/1920x940'//this._imageService.loadImage1920x940('who-we-are-home.jpg');
     this.aboutSideImage =  'https://placehold.co/270x284'//'' this._imageService.loadImage450x450('about-side-image.jpg');
+    this._imageService.setHeadShotsPrefix();
+    this.georgeHeadshot = this._imageService.loadImage270x284('george-papa.jpeg');
+    this._imageService.setBannerPrefix();
+    this.teamCoverImage = this._imageService.loadImage1920x940('team-banner.jpg');
+
 
     this._metaTagService.addTags([
       {
@@ -78,6 +87,8 @@ export class TeamComponent implements OnInit {
          } else if (timestampOfPlayer < timestampBoysUnder13) {
            this.boysUnder13Team.push(player)
         //   boysUnder13Team.push(player);
+         } else if (timestampOfPlayer > timestampBoysUnder17) {
+           this.mensAmature.push(player);
          }
        }
 
