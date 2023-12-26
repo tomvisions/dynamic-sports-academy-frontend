@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
         imageMobile: "https://placehold.co/270x270", //this._imageService.loadImage270x270('P1120107.JPG'),
         title: "Welcome to our Soccer Club",
         message: "Great Club here!",
-        link: "/about",
+        link: "/join",
         clickMore: "Read more"
       },
       { // charles video
