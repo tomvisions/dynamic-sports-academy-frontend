@@ -19,6 +19,10 @@
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
     "buffer": "^6.0.3",
+    "google-auth-library": "^9.4.1",
+    "googleapis": "^129.0.0",
+    "lg-video": "^1.4.0",
+    "lightgallery": "^2.7.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

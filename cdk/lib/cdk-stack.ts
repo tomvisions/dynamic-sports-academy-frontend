@@ -23,13 +23,15 @@ const siteDomainProduction = 'www.dynamic-sports-academy.com';
 const domainProduction = 'dynamic-sports-academy.com';
 const imageBucket = 'dynamic-sports-academy-images';
 const imagesDomain = 'images.dynamic-sports-academy-images';
+const mediaDomain = 'media.dynamic-sports-academy.com';
+
 const distributionId = 'E3FB2ZREFLI5G6';
 
 const certificateDomain = '*.dynamic-sports-academy.com';
 
 export class SiteCdkStack extends cdk.Stack {
-  declare myZone: route53.HostedZone;  
- 
+  declare myZone: route53.HostedZone;
+
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
@@ -69,6 +71,23 @@ export class SiteCdkStack extends cdk.Stack {
           autoDeleteObjects: true, // NOT recommended for production code
         });
 
+    const siteBucketMedia = new s3.Bucket(this, 'SiteBucketMedia', {
+      bucketName: mediaDomain,
+      publicReadAccess: false,
+      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
+      /**
+       * The default removal policy is RETAIN, which means that cdk destroy will not attempt to delete
+       * the new bucket, and it will remain in your account until manually deleted. By setting the policy to
+       * DESTROY, cdk destroy will attempt to delete the bucket, but will error if the bucket is not empty.
+       */
+      removalPolicy: RemovalPolicy.DESTROY, // NOT recommended for production code
+
+      /**
+       * For sample purposes only, if you create an S3 bucket then populate it, stack destruction fails.  This
+       * setting will enable full cleanup of the demo.
+       */
+      autoDeleteObjects: true, // NOT recommended for production code
+    });
 
 
     const siteBucketStage = new s3.Bucket(this, 'SiteBucketStage', {
@@ -99,13 +118,43 @@ export class SiteCdkStack extends cdk.Stack {
            * DESTROY, cdk destroy will attempt to delete the bucket, but will error if the bucket is not empty.
            */
               removalPolicy: RemovalPolicy.DESTROY, // NOT recommended for production code
-    
+
               /**
                * For sample purposes only, if you create an S3 bucket then populate it, stack destruction fails.  This
                * setting will enable full cleanup of the demo.
                */
               autoDeleteObjects: true, // NOT recommended for production code
-            });    
+            });
+
+
+    // CloudFront distribution
+    const distributionMedia = new cloudfront.Distribution(this, 'MediaSiteDistribution', {
+      certificate: acm.Certificate.fromCertificateArn(this, 'mediaDistrbution', certificate.certificateArn),
+      defaultRootObject: "index.html",
+      domainNames: [mediaDomain],
+      minimumProtocolVersion: cloudfront.SecurityPolicyProtocol.TLS_V1_2_2021,
+      errorResponses: [
+        {
+          httpStatus: 403,
+          responseHttpStatus: 403,
+          responsePagePath: '/index.html',
+          ttl: Duration.minutes(30),
+        },
+        {
+          httpStatus: 404,
+          responseHttpStatus: 404,
+          responsePagePath: '/index.html',
+          ttl: Duration.minutes(30),
+        }
+      ],
+      defaultBehavior: {
+        origin: new cloudfront_origins.S3Origin(siteBucketStage, { originAccessIdentity: cloudfrontOAI }),
+        compress: true,
+        allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
+        viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+      },
+      comment: "Distribution for Media Dynamic Sports Academy"
+    })
 
     // CloudFront distribution
     const distributionStage = new cloudfront.Distribution(this, 'StageSiteDistribution', {
@@ -133,9 +182,9 @@ export class SiteCdkStack extends cdk.Stack {
         allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
         viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
       },
-      comment: "Distribution for Stage Tomvisions Gallery"
+      comment: "Distribution for Stage Dynamic Sports Academy"
     })
-    
+
         // CloudFront distribution
         const distributionProduction = new cloudfront.Distribution(this, 'ProductionSiteDistribution', {
           certificate: acm.Certificate.fromCertificateArn(this, 'productionDistribution', certificate.certificateArn),
@@ -162,7 +211,7 @@ export class SiteCdkStack extends cdk.Stack {
             allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
             viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
           },
-          comment: "Distribution for Production Tomvisions Gallery"
+          comment: "Distribution for Production Dynamic Sports Academy"
         })
 
     //const myZone = route53.HostedZone.fromHostedZoneAttributes(this, 'Route53TomvisionsZone', {hostedZoneId: 'Z2L2Y9R9WT05A6', zoneName: 'tomvisions.com'})
@@ -179,7 +228,7 @@ export class SiteCdkStack extends cdk.Stack {
       recordName: 'www'
     })
 
-    
+
 
     new CfnOutput(this, 'StageBucketSiteArn', { value: siteBucketStage.bucketArn, exportName: "StageBucketSiteArn" });
     new CfnOutput(this, 'ProductionBucketSiteArn', { value: siteBucketProduction.bucketArn, exportName: "ProductionBucketSiteArn" });

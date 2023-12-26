@@ -13,7 +13,7 @@ import { Meta } from '@angular/platform-browser';
 export class AcademyComponent {
   academyForm:FormGroup;
   academyCoverImage;
-  
+
   constructor(
     private _formBuilder: FormBuilder,
     private _academyService: AcademyService,
@@ -37,7 +37,9 @@ export class AcademyComponent {
       { name: 'date', content: '2019-10-31', scheme: 'YYYY-MM-DD' },
       { charset: 'UTF-8' },
     ]);
-    this.academyCoverImage = this._imageService.loadImage1920x940('join-academy.jpg');
+
+    this._imageService.setBannerPrefix();
+    this.academyCoverImage = this._imageService.loadImage1920x940('banner-academy.jpeg');
 
     // Create the selected product form
     this.academyForm = this._formBuilder.group({

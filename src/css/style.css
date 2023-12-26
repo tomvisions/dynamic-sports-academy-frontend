@@ -4785,3 +4785,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 .footer-bottom-area .author-credit p i {
   color: #ffc61c;
 }
+
+.hide {
+  display:none;
+}

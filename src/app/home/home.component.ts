@@ -16,9 +16,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this._imageService.setBannerPrefix();
     this.homeArray = [
       { // who we are
-        imageDesktop: "https://placehold.co/1920x940",// this._imageService.loadImage1920x940('P1120107.JPG'),
+        imageDesktop: this._imageService.loadImage1920x940('soccer-field.jpeg'),
+      //  imageDesktop: "https://placehold.co/1920x940",// this._imageService.loadImage1920x940('P1120107.JPG'),
         imageMobile: "https://placehold.co/270x270", //this._imageService.loadImage270x270('P1120107.JPG'),
         title: "Welcome to our Soccer Club",
         message: "Great Club here!",
@@ -26,7 +28,7 @@ export class HomeComponent implements OnInit {
         clickMore: "Read more"
       },
       { // charles video
-        imageDesktop: "https://placehold.co/1920x940", //this._imageService.loadImage1920x940('P1120108.JPG'),
+        imageDesktop: this._imageService.loadImage1920x940('team-banner.jpg'), //this._imageService.loadImage1920x940('P1120108.JPG'),
         imageMobile: "https://placehold.co/270x270",//this._imageService.loadImage270x270('P1120108.JPG'),
         title: "Come join our team",
         message: "",

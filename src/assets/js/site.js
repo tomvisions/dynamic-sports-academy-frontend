@@ -8,7 +8,7 @@ $(window).on('load', function() {
     delay: 20,
     time: 3000
   });
-  console.log('arrived')
+
   /*--
     Menu Sticky
   -----------------------------------*/

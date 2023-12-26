@@ -7,6 +7,8 @@ import { VideosComponent } from './videos/videos.component';
 import { AcademyComponent } from './academy/academy.component';
 import { EventsComponent } from './events/events.component';
 import { MembershipComponent } from './membership/membership.component';
+import {ShopComponent} from "./shop/shop.component";
+import {ContactComponent} from "./contact/contact.component";
 const routes: Routes = [
   {
     path: '',
@@ -32,6 +34,15 @@ const routes: Routes = [
     path: 'join',
     component: AcademyComponent,
   },
+  {
+    path: 'shop',
+    component: ShopComponent,
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
+  },
+
   {
     path: 'events',
     component: EventsComponent,

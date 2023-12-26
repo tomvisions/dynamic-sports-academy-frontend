@@ -1,1 +1,19 @@
-<p>video works!</p>
+<!-- Page Banner Area Start -->
+<div id="page-banner-area" class="page-banner-area section" style="background-image: url({{videosCoverImage}})">
+  <div class="container">
+    <div class="row">
+      <div class="page-banner-title text-center col-12">
+        <h2>videos</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Page Banner Area End -->
+<div class="container">
+<lightgallery [settings]="settings" [onHasVideo]="onHasVideo" [onInit]="onInit">>
+  <a *ngFor="let item of items" [attr.data-lg-size]="item.size" class="gallery-item" [attr.href]="item.src">
+    <img class="img-responsive" src="{{ item.thumb }}" />
+  </a>
+</lightgallery>
+</div>
+

@@ -13,6 +13,9 @@ import { EventComponent } from './event/event.component';
 import { EventsComponent } from './events/events.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { LightgalleryModule} from "lightgallery/angular";
+import { ShopComponent } from './shop/shop.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +27,16 @@ import { HttpClientModule } from '@angular/common/http';
     AcademyComponent,
     VideosComponent,
     EventComponent,
-    EventsComponent
+    EventsComponent,
+    ShopComponent,
+    ContactComponent
   ],
   imports: [
     ReactiveFormsModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    LightgalleryModule,
     FormsModule
   ],
   providers: [],
