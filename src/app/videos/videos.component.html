@@ -1,3 +1,5 @@
+
+
 <!-- Page Banner Area Start -->
 <div id="page-banner-area" class="page-banner-area section" style="background-image: url({{videosCoverImage}})">
   <div class="container">
@@ -10,10 +12,21 @@
 </div>
 <!-- Page Banner Area End -->
 <div class="container">
-<lightgallery [settings]="settings" [onHasVideo]="onHasVideo" [onInit]="onInit">>
-  <a *ngFor="let item of items" [attr.data-lg-size]="item.size" class="gallery-item" [attr.href]="item.src">
-    <img class="img-responsive" src="{{ item.thumb }}" />
+<lightgallery [settings]="settings" [onHasVideo]="onHasVideo" [onInit]="onInit">
+  <ng-template ngFor let-item [ngForOf]="items">
+  <a
+    [attr.data-lg-size]="item.size"
+    [attr.href]="item.src"
+    class="gallery-items"
+  >
+    <img
+      width="350"
+      height="250"
+      class="img-responsive"
+      src="{{item.thumb}}"
+    />
   </a>
+  </ng-template>
 </lightgallery>
 </div>
 

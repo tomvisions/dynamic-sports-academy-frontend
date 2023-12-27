@@ -1,1 +1,7 @@
-@import "../../../node_modules/lightgallery/scss/lightgallery";
+@import "../../../node_modules/lightgallery/scss/lightgallery.scss";
+@import "../../../node_modules/lightgallery/scss/lg-zoom.scss";
+@import "../../../node_modules/lightgallery/scss/lg-video.scss";
+
+.gallery-items {
+  margin: 5px;
+}

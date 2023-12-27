@@ -17,6 +17,7 @@ import { SecretValue } from 'aws-cdk-lib';
 import { CodeBuildAction } from 'aws-cdk-lib/aws-codepipeline-actions';
 import * as pipelineactions from "aws-cdk-lib/aws-codepipeline-actions";
 import { CfnOutput } from 'aws-cdk-lib';
+import {CachePolicy} from "aws-cdk-lib/aws-cloudfront";
 
 const siteDomainStage = 'stage.dynamic-sports-academy.com';
 const siteDomainProduction = 'www.dynamic-sports-academy.com';
@@ -228,6 +229,18 @@ export class SiteCdkStack extends cdk.Stack {
       recordName: 'www'
     })
 
+    const cachePolicy = new CachePolicy(this, 'cachePolicyCloudfront', {
+      cachePolicyName: 'dynamics-year-policy',
+      comment: 'A policy to expire objects within a year',
+      defaultTtl: Duration.days(365),
+      minTtl: Duration.minutes(1),
+      maxTtl: Duration.days(365),
+      cookieBehavior: cloudfront.CacheCookieBehavior.none(),
+      headerBehavior: cloudfront.CacheHeaderBehavior.none(),
+      queryStringBehavior: cloudfront.CacheQueryStringBehavior.none(),
+      enableAcceptEncodingGzip: true,
+      enableAcceptEncodingBrotli: true,
+    });
 
 
     new CfnOutput(this, 'StageBucketSiteArn', { value: siteBucketStage.bucketArn, exportName: "StageBucketSiteArn" });

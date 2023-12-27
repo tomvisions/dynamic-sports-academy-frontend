@@ -1,5 +1,7 @@
 import {AfterContentInit, AfterViewChecked, Component, OnInit, ViewEncapsulation} from '@angular/core';
-import Video from 'lightgallery/plugins/video';
+//import Video from 'lightgallery/plugins/video';
+import lgZoom from 'lightgallery/plugins/zoom';
+import lgVideo from 'lightgallery/plugins/video';
 //import lgVideo from  'lightgallery/plugins/video';
 //import Zoom from 'lightgallery/plugins/zoom';
 import { LightGallery } from 'lightgallery/lightgallery';
@@ -35,15 +37,40 @@ export class VideosComponent implements OnInit, AfterContentInit, AfterViewCheck
   }
 
   settings = {
-    plugins: [Video]
+    counter: false,
+    plugins: [lgZoom, lgVideo]
   };
 
   items = [
     {
       id: '1',
       size: '1400-933',
+      src: 'https://www.youtube.com/embed/WhsQee44Fro',
+      thumb: 'https://img.youtube.com/vi/WhsQee44Fro/0.jpg',
+    },
+    {
+      id: '2',
+      size: '1400-933',
+      src: 'https://www.youtube.com/embed/HODxabDMjcc',
+      thumb: 'https://img.youtube.com/vi/HODxabDMjcc/0.jpg',
+    },
+    {
+      id: '3',
+      size: '1400-933',
       src: 'https://www.youtube.com/embed/HbH0yNNTR-o',
-      thumb: 'https://img.youtube.com/vi/HOYpAgWPTps/0.jpg',
+      thumb: 'https://img.youtube.com/vi/HbH0yNNTR-o/0.jpg',
+    },
+    {
+      id: '4',
+      size: '1400-933',
+      src: 'https://www.youtube.com/embed/TFoX-AnQJEM',
+      thumb: 'https://img.youtube.com/vi/TFoX-AnQJEM/0.jpg',
+    },
+    {
+      id: '5',
+      size: '1400-933',
+      src: 'https://www.youtube.com/embed/QBNQmeeJScc',
+      thumb: 'https://img.youtube.com/vi/QBNQmeeJScc/0.jpg',
     },
   ];
 
