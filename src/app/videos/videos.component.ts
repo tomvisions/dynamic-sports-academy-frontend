@@ -38,38 +38,38 @@ export class VideosComponent implements OnInit, AfterContentInit, AfterViewCheck
 
   settings = {
     counter: false,
-    plugins: [lgZoom, lgVideo]
+    plugins: [lgVideo]
   };
 
   items = [
     {
       id: '1',
-      size: '1400-933',
-      src: 'https://www.youtube.com/embed/WhsQee44Fro',
+      size: '1280-720',
+      src: 'https://youtu.be/WhsQee44Fro',
       thumb: 'https://img.youtube.com/vi/WhsQee44Fro/0.jpg',
     },
     {
       id: '2',
-      size: '1400-933',
-      src: 'https://www.youtube.com/embed/HODxabDMjcc',
+      size: '1280-720',
+      src: 'https://youtu.be/HODxabDMjcc',
       thumb: 'https://img.youtube.com/vi/HODxabDMjcc/0.jpg',
     },
     {
       id: '3',
-      size: '1400-933',
-      src: 'https://www.youtube.com/embed/HbH0yNNTR-o',
+      size: '1280-720',
+      src: 'https://youtu.be/HbH0yNNTR-o',
       thumb: 'https://img.youtube.com/vi/HbH0yNNTR-o/0.jpg',
     },
     {
       id: '4',
-      size: '1400-933',
-      src: 'https://www.youtube.com/embed/TFoX-AnQJEM',
+      size: '1280-720',
+      src: 'https://youtu.be/TFoX-AnQJEM',
       thumb: 'https://img.youtube.com/vi/TFoX-AnQJEM/0.jpg',
     },
     {
       id: '5',
-      size: '1400-933',
-      src: 'https://www.youtube.com/embed/QBNQmeeJScc',
+      size: '1280-720',
+      src: 'https://youtu.be/QBNQmeeJScc',
       thumb: 'https://img.youtube.com/vi/QBNQmeeJScc/0.jpg',
     },
   ];
