@@ -42,16 +42,12 @@
               <h4>Join the Academy</h4>
               <form [formGroup]="academyForm">
                 <input type="text" name="name" placeholder="Name" [formControlName]="'name'">
-                <input type="email" name="email" placeholder="Birth" [formControlName]="'birth'">
-                <input type="text" name="placeOfBirth" placeholder="Place Of Birth" [formControlName]="'placeOfBirth'">
-                <input type="text" name="nhis" placeholder="nhis" [formControlName]="'nhis'">
+                <input type="email" name="phoneNumber" placeholder="Phone Number}" [formControlName]="'phoneNumber'">
+                <input type="text" name="email" placeholder="Email" [formControlName]="'email'">
+                <input type="text" name="dateOfBirth" placeholder="Date Of Birth" [formControlName]="'dateOfBirth'">
                 <input type="text" name="residentalAddress" placeholder="Residental Address" [formControlName]="'residentalAddress'">
-                <input type="text" name="nameOfParentsOrGuardian" placeholder="Name Of Parents Or Guardian" [formControlName]="'nameOfParentsOrGuardian'">
-                <input type="text" name="nameOfParentsOrGuardianPhone" placeholder="Name Of Parents Or Guardian Phone" [formControlName]="'nameOfParentsOrGuardianPhone'">
-                <input type="text" name="school" placeholder="school" [formControlName]="'school'">
-                <input type="text" name="classOrForm" placeholder="Class Or Form" [formControlName]="'classOrForm'">
-                <input type="text" name="schoolContact" placeholder="School Contact" [formControlName]="'schoolContact'">
-                <input type="text" name="formerClub" placeholder="Former Club" [formControlName]="'formerClub'">
+                <input type="text" name="city" placeholder="City" [formControlName]="'city'">
+                <input type="text" name="country" placeholder="Country" [formControlName]="'country'">
                 <button (click)="submitToAcademy()" class="submit">Send</button>
               </form>
             </div>

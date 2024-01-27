@@ -1174,10 +1174,10 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   }
 }
 .main-menu nav > ul > li > a:hover {
-  color: #ffc61c;
+  color: #FF0000;
 }
 .main-menu nav > ul > li.active > a {
-  color: #ffc61c;
+  color: #FF0000;
 }
 .main-menu nav > ul > li > ul {
   position: absolute;
@@ -1493,7 +1493,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   }
 }
 .hero-content h1 span {
-  color: #ffc61c;
+  color: #FF0000;
 }
 .hero-content p {
   font-size: 18px;

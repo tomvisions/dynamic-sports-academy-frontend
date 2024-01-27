@@ -44,16 +44,12 @@ export class AcademyComponent {
     // Create the selected product form
     this.academyForm = this._formBuilder.group({
       name: '',
-      birth: '',
-      placeOfBirth: '',
-      nhis: '',
+      phoneNumber: '',
+      email: '',
+      dateOfBirth: '',
       residentalAddress: '',
-      nameOfParentsOrGuardian:'',
-      nameOfParentsOrGuardianPhone: '',
-      school: '',
-      classOrForm: '',
-      schoolContact: '',
-      formerClub: '',
+      city:'',
+      country: '',
     });
   }
 
