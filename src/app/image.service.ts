@@ -168,7 +168,6 @@ export class ImageService {
     }
   }
 
-
   public setBannerPrefix(prefix = true) {
     if (prefix) {
       this._PARAM_LOCATION = 'banner';

@@ -3,6 +3,8 @@ import { ImageService } from '../image.service';
 import { Meta } from '@angular/platform-browser';
 import {TeamService} from "./team.service";
 import {Team} from "./team.type";
+import {Observable, Subject, takeUntil} from "rxjs";
+
 
 @Component({
   selector: 'app-team',
@@ -10,16 +12,19 @@ import {Team} from "./team.type";
   styleUrls: ['./team.component.scss']
 })
 export class TeamComponent implements OnInit {
+  private _unsubscribeAll: Subject<any> = new Subject<any>();
   aboutCoverImage;
   aboutSideImage;
   intro = [];
   boysUnder17Team=[];
   boysUnder15Team=[];
   boysUnder13Team=[];
+  officals=[];
   mensAmature = [];
   womensAmature = [];
   georgeHeadshot;
   teamCoverImage;
+  teams;
 
   constructor(private _imageService: ImageService, private _metaTagService: Meta, private _teamService: TeamService) {
   }
@@ -47,7 +52,7 @@ export class TeamComponent implements OnInit {
       {name: 'date', content: '2019-10-31', scheme: 'YYYY-MM-DD'},
       {charset: 'UTF-8'},
     ]);
-     const players = this._teamService.getTeams()
+//     const players = this._teamService.getTeams()
     const intro = this._teamService.getIntro()
      const timestampBoysUnder17 = (new Date(2023-5, 9, 1,  0, 0)).getTime();
      const timestampBoysUnder15 = (new Date(2023-8, 9, 1,  0, 0)).getTime();
@@ -57,12 +62,70 @@ export class TeamComponent implements OnInit {
 //    console.log(new Date(2023-5, 9, 1,  0, 0));
 
     intro.map((line) => {
-      console.log('hello')
-      console.log(line.text);
+ //     console.log('hello')
+   //   console.log(line.text);
       this.intro.push(line.text);
 
     })
-    console.log(intro);
+   // console.log(intro);
+
+       // Get the teams
+       this._teamService.teams$
+       .pipe(takeUntil(this._unsubscribeAll))
+       .subscribe((teams: Team[]) => {
+        // this.teams = teams;
+
+         teams.map((player) => {
+          if (player.dateOfBirth !== 'Not Available') {
+            const birthday = player.dateOfBirth.split('/');
+            const timestampOfPlayer = (new Date( Number(birthday[2]), Number(birthday[1]), Number(birthday[0]),  0, 0)).getTime();
+      //      console.log('begin')
+       //     console.log('17')
+        //    console.log(timestampBoysUnder17)
+         //   console.log('15')
+          //  console.log(timestampBoysUnder15);
+         //   console.log('player')
+   
+          //  console.log(timestampOfPlayer);
+          //  console.log(player)
+            this._imageService.setHeadShotsPrefix();
+
+            console.log  
+            if (player.photoPresent === 'Yes') {
+              player.profileImage = this._imageService.loadImage270x284(player.profileImage);
+              console.log('the profile');
+              console.log(player.profileImage);
+            } else {
+              player.profileImage = undefined;
+            }
+            if (player.role === 'Club official') {
+              this.officals.push(player);
+              console.log(this.officals);
+            } else if (timestampOfPlayer < timestampBoysUnder17 && timestampOfPlayer > timestampBoysUnder15) {
+          //    console.log('entering')
+         //     console.log(player);
+              this.boysUnder17Team.push(player);
+            } else if (timestampOfPlayer < timestampBoysUnder15 &&  timestampOfPlayer > timestampBoysUnder13) {
+              this.boysUnder15Team.push(player);
+            } else if (timestampOfPlayer < timestampBoysUnder13) {
+              this.boysUnder13Team.push(player)
+        
+           //   boysUnder13Team.push(player);
+            } else if (timestampOfPlayer > timestampBoysUnder17) {
+              this.mensAmature.push(player);
+            }
+         //   console.log(this.boysUnder13Team);
+          }
+   
+   //      console.log(teams); 
+
+
+ 
+         this._imageService.setSitePrefix(false);
+       //  this.contentImage = this._imageService.loadImage200x200(events[0].contentImage);
+       });
+      });
+  /*
 
     players.map((player) => {
        if (player.DOB !== 'Not Available') {
@@ -96,6 +159,6 @@ export class TeamComponent implements OnInit {
         //console.log(player);
      });
     console.log(this.boysUnder15Team)
-
+*/
   }
 }
