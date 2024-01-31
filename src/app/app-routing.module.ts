@@ -9,6 +9,8 @@ import { EventsComponent } from './events/events.component';
 import { MembershipComponent } from './membership/membership.component';
 import {ShopComponent} from "./shop/shop.component";
 import {ContactComponent} from "./contact/contact.component";
+import { TeamResolver } from './team/team.resolver';
+
 const routes: Routes = [
   {
     path: '',
@@ -21,6 +23,10 @@ const routes: Routes = [
   {
     path: 'team',
     component: TeamComponent,
+    resolve  : {
+      team  : TeamResolver,
+    }
+
   },
   {
     path: 'videos',

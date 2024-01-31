@@ -21,6 +21,9 @@
                             <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#intro">Intro</button>
                         </li>
                         <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#officials">Officials</button>
+                        </li>
+                        <li class="nav-item">
                             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#boys-under-13">Boys Under 13</button>
                         </li>
                         <li class="nav-item">
@@ -58,17 +61,48 @@
                   </div>
 
                   <!-- First Team Tab -->
+                  <div role="tabpanel" class="tab-pane fade" id="officials">
+                    <div class="row">
+                        <ng-container *ngIf="officals.length > 0; else noOfficials">
+
+                            <!-- Single Stuff -->
+                            <div *ngFor="let offical of officals" class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
+                              <div class="image"><img src="https://placehold.co/270x284" alt=""></div>
+                              <div class="content">
+                                <div class="details">
+                                  <h4><a href="#">{{offical['firstName']}} {{offical['familyName']}}</a></h4>
+
+                                </div>
+                              </div>
+                            </div>
+                          </ng-container>
+                          <ng-template #noOfficials>
+                            <div class="p-8 sm:p-16 border-t text-4xl font-semibold tracking-tight text-center">There are no officials!</div>
+                          </ng-template>
+                    </div>
+                </div>
+
+                  <!-- First Team Tab -->
                     <div role="tabpanel" class="tab-pane fade" id="boys-under-13">
                         <div class="row">
                             <ng-container *ngIf="boysUnder13Team.length > 0; else noBoysUnder13">
 
                                 <!-- Single Stuff -->
                                 <div *ngFor="let boy of boysUnder13Team" class="staff-item col-xl-3 col-lg-4 col-md-6 col-12 mb-30">
-                                  <div class="image"><img src="https://placehold.co/270x284" alt=""></div>
+                                  <div class="image">
+                                
+                                    <div ng-if="{{boy.profileImage}} !== undefined">
+                                      <img src="{{boy.profileImage}}" alt="">
+                                      <!-- code to render a large video block-->
+                                    </div>
+                                    <div ng-if="{{boy.profileImage}} === undefined">
+                                      <img src="https://placehold.co/270x284" alt="">
+                                      <!-- code to render the regular video block -->
+                                     </div>
+                                  </div>   
                                   <div class="content">
                                     <div class="details">
-                                      <h4><a href="#">{{boy['firstName']}} {{boy['lastName']}}</a></h4>
-
+                                      <h4><a href="#">{{boy['firstName']}} {{boy['familyName']}}</a></h4>
                                     </div>
                                   </div>
                                 </div>
