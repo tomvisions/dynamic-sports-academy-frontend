@@ -37,7 +37,7 @@ export class MembershipService
     console.log(membership)
     return this.membership$.pipe(
       take(1),
-      switchMap(theContactUs => this._httpClient.post<Membership>(`${this._sharedService.apiLocation}/api/v1/mail`,
+      switchMap(theContactUs => this._httpClient.post<Membership>(`${this._sharedService.apiLocation}/api/mail`,
       membership, { headers: {
           'Content-Type': 'application/json'
         }}).pipe(
