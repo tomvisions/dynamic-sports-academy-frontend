@@ -10,6 +10,7 @@ import {ImageService} from "./image.service";
 export class AppComponent implements OnInit{
   title = 'dynamic-sports-academy-frontend';
   siteLogo;
+  year;
 
   constructor(private _imageService: ImageService) {
   }
@@ -17,6 +18,8 @@ export class AppComponent implements OnInit{
   ngOnInit() {
     this._imageService.setSitePrefix();
     this.siteLogo = this._imageService.loadImage100x100("dynamic-sports-academy-logo.png");
+    this.year = new Date().getFullYear();
+
   }
 
 
