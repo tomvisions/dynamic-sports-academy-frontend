@@ -1,14 +1,10 @@
 export interface Academy
 {
   name: string;
-  birth: string;
-  placeOfBirth: string;
-  nhis: string;
+  phoneNumber: string;
+  email: string;
+  dateOfBirth: string;
   residentalAddress: string;
-  nameOfParentsOrGuardian: string;
-  nameOfParentsOrGuardianPhone: string;
-  school: string;
-  classOrForm: string;
-  schoolContact: string;
-  formerClub: string;
+  city: string;
+  country: string;
 }

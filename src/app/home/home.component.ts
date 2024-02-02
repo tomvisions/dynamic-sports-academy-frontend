@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
       },
       { // charles video
         imageDesktop: this._imageService.loadImage1920x940('team-banner.jpg'), //this._imageService.loadImage1920x940('P1120108.JPG'),
-        imageLogo: this._imageService.loadImage400('dsp-logo-slide-big.png'),
+        imageLogo: this._imageService.loadImage100('dsp-logo-slide-big.png'),
         imageMobile: "https://placehold.co/270x270",//this._imageService.loadImage270x270('P1120108.JPG'),
         title: "Come join our team",
         message: "",

@@ -37,7 +37,7 @@ export class ContactService
     console.log(joinAcademy);
     return this.contactUs$.pipe(
       take(1),
-      switchMap(theContactUs => this._httpClient.post<Contact>(`${this._sharedService.apiLocation}/api/v1/mail`,
+      switchMap(theContactUs => this._httpClient.post<Contact>(`${this._sharedService.apiLocation}/api/mail`,
         joinAcademy, { headers: {
             'Content-Type': 'application/json'
           }}).pipe(
